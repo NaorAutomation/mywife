@@ -468,4 +468,102 @@ body {
         padding-left: 12px;
         padding-right: 12px;
     }
+}
+
+/* סקציית צור קשר */
+#contact {
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(247,246,254,0.5) 100%);
+    position: relative;
+}
+
+#contact h2 {
+    position: relative;
+    display: inline-block;
+}
+
+#contact h2:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-blue) 30%, var(--primary-pink) 100%);
+    border-radius: 2px;
+}
+
+#contact h3 span {
+    transition: width 0.3s ease;
+}
+
+#contact h3:hover span {
+    width: 100%;
+}
+
+#contact form input,
+#contact form select,
+#contact form textarea {
+    transition: all 0.3s ease;
+}
+
+#contact form input:focus,
+#contact form select:focus,
+#contact form textarea:focus {
+    box-shadow: 0 0 0 3px rgba(116, 192, 229, 0.3);
+    border-color: var(--primary-blue);
+}
+
+#contact form button {
+    transition: all 0.3s ease;
+}
+
+#contact form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+#contact form button:active {
+    transform: translateY(0);
+}
+
+#contact .bg-primary-blue {
+    transition: all 0.3s ease;
+}
+
+#contact .flex:hover .bg-primary-blue {
+    transform: scale(1.1);
+}
+
+/* אנימציה להודעת תודה */
+@keyframes thankYouIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#thankYouMessage {
+    animation: thankYouIn 0.5s forwards;
+}
+
+/* טיפול במפה */
+#contact iframe {
+    filter: grayscale(0.3);
+    transition: filter 0.3s ease;
+}
+
+#contact iframe:hover {
+    filter: grayscale(0);
+}
+
+/* התאמה למובייל */
+@media (max-width: 768px) {
+    #contact .flex-col {
+        gap: 1.5rem;
+    }
 } 
