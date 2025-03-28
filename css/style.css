@@ -1,0 +1,471 @@
+/* סגנונות כלליים */
+:root {
+    --primary-pink: #F7A4C5;
+    --primary-blue: #74C0E5;
+    --light-pink: #FDD6E6;
+    --light-blue: #B8E2F7;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    overflow-x: hidden;
+    direction: rtl;
+}
+
+/* אנימציות */
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+
+/* תפריט ניווט */
+.navbar {
+    background: linear-gradient(90deg, var(--primary-pink) 0%, var(--primary-blue) 100%);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.navbar-shrink {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+/* כפתורים */
+.btn-primary {
+    background: var(--primary-pink);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: var(--light-pink);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: var(--primary-blue);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: var(--light-blue);
+    transform: translateY(-2px);
+}
+
+/* באנר ראשי */
+.hero-banner {
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(247,234,244,0.7) 50%, rgba(233,246,254,0.7) 100%);
+    padding-top: 6rem;
+}
+
+.hero-banner h1 {
+    color: #0F3460;
+}
+
+.hero-banner p {
+    color: #333333;
+}
+
+/* טיפול בתמונה במחשב */
+@media (min-width: 768px) {
+    .hero-banner .rounded-2xl {
+        border-radius: 20px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        transform: perspective(1000px) rotateY(-10deg) rotateX(5deg) translateZ(0);
+        overflow: hidden;
+        transition: all 0.5s ease;
+    }
+    
+    .hero-banner .rounded-2xl:hover {
+        transform: perspective(1000px) rotateY(-5deg) rotateX(2deg) translateZ(0);
+    }
+    
+    .hero-banner .rounded-2xl img {
+        transform: scale(1.05);
+        transition: transform 0.5s ease;
+    }
+    
+    .hero-banner .rounded-2xl:hover img {
+        transform: scale(1);
+    }
+}
+
+/* סקציית אודות */
+#about {
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(247,246,254,0.5) 100%);
+    position: relative;
+}
+
+#about h2 {
+    position: relative;
+    display: inline-block;
+}
+
+#about h2:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-blue) 0%, var(--primary-pink) 100%);
+    border-radius: 2px;
+}
+
+#about .text-xl {
+    color: var(--primary-pink);
+}
+
+#about p {
+    line-height: 1.8;
+}
+
+#about .italic {
+    position: relative;
+    padding-right: 20px;
+}
+
+#about .italic:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--primary-pink), var(--primary-blue));
+    border-radius: 2px;
+}
+
+@media (min-width: 768px) {
+    #about .rounded-2xl {
+        border-radius: 20px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        transform: perspective(1000px) rotateY(10deg) rotateX(5deg) translateZ(0);
+        overflow: hidden;
+        transition: all 0.5s ease;
+    }
+    
+    #about .rounded-2xl:hover {
+        transform: perspective(1000px) rotateY(5deg) rotateX(2deg) translateZ(0);
+    }
+}
+
+/* סקציית המלצות - עיצוב 2025 */
+.testimonials-section {
+    position: relative;
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(250,244,254,0.4) 100%);
+    backdrop-filter: blur(8px);
+    will-change: transform;
+}
+
+.testimonials-section h2 {
+    position: relative;
+    display: inline-block;
+}
+
+.testimonials-section h2:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-blue) 30%, var(--primary-pink) 100%);
+    border-radius: 8px;
+}
+
+.testimonials-carousel {
+    padding: 30px 0;
+}
+
+.testimonial-card {
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform, opacity;
+}
+
+.testimonial-card .card-inner {
+    isolation: isolate;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.testimonial-card .quote-mark {
+    font-size: 3rem;
+    opacity: 0.1;
+    line-height: 1;
+}
+
+.testimonial-card .bg-gradient-to-br,
+.testimonial-card .bg-gradient-to-bl,
+.testimonial-card .bg-gradient-to-tr,
+.testimonial-card .bg-gradient-to-tl {
+    background-size: 200% 200%;
+    animation: gradientMove 15s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.carousel-arrow {
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.carousel-arrow:hover {
+    opacity: 1;
+    transform: scale(1.1) translateY(-50%);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.testimonials-indicators {
+    margin-top: 30px;
+}
+
+.indicator-dot {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.indicator-dot.active {
+    transform: scale(1.5);
+}
+
+.testimonial-badge {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transform-style: preserve-3d;
+}
+
+.testimonial-badge > div {
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+/* אפקט 3D hover על קלפי ההמלצות */
+@media (min-width: 768px) {
+    .testimonial-card .p-1 {
+        transition: all 0.5s ease;
+        transform-style: preserve-3d;
+    }
+    
+    .testimonial-card:hover .p-1 {
+        transform: translateY(-8px);
+    }
+    
+    .testimonial-card .card-inner {
+        backface-visibility: hidden;
+        transform: translateZ(0);
+        transition: all 0.5s ease;
+    }
+    
+    /* Amorphous blob effects */
+    .testimonial-badge div {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .testimonial-badge div::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+        transform: rotate(30deg);
+        animation: shimmer 5s linear infinite;
+    }
+    
+    @keyframes shimmer {
+        0% {
+            transform: rotate(0deg) translateY(-100%);
+        }
+        100% {
+            transform: rotate(30deg) translateY(100%);
+        }
+    }
+}
+
+/* סקציית השירותים */
+#services {
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(247,246,254,0.4) 100%);
+}
+
+#services h2 {
+    position: relative;
+    display: inline-block;
+}
+
+#services h2:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-pink) 0%, var(--primary-blue) 100%);
+    border-radius: 2px;
+}
+
+.service-card {
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-card h3 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.service-card h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 3px;
+    background-color: currentColor;
+    border-radius: 1.5px;
+}
+
+@media (min-width: 768px) {
+    .service-card .rounded-2xl {
+        transition: all 0.3s ease;
+    }
+    
+    .service-card:hover .rounded-2xl {
+        transform: scale(1.03);
+    }
+    
+    /* שיפור הצגת התמונות במחשב - דומה לבאנר */
+    .service-card .relative {
+        border-radius: 20px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        transform: perspective(1000px) rotateY(-8deg) rotateX(3deg) translateZ(0);
+        overflow: hidden;
+        transition: all 0.5s ease;
+    }
+    
+    .service-card:hover .relative {
+        transform: perspective(1000px) rotateY(-4deg) rotateX(2deg) translateZ(0);
+        box-shadow: 0 25px 55px rgba(0, 0, 0, 0.2);
+    }
+    
+    .service-card img {
+        height: 300px;
+        width: 100%;
+        object-fit: cover;
+        transform: scale(1.05);
+        transition: transform 0.5s ease;
+    }
+    
+    .service-card:hover img {
+        transform: scale(1);
+    }
+    
+    /* צורות דקורטיביות לתמונות במחשב */
+    .service-card .relative::before {
+        content: '';
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--primary-blue);
+        opacity: 0.3;
+        filter: blur(10px);
+        z-index: 1;
+        transition: all 0.3s ease;
+    }
+    
+    .service-card .relative::after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: -15px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--primary-pink);
+        opacity: 0.3;
+        filter: blur(10px);
+        z-index: 1;
+        transition: all 0.3s ease;
+    }
+    
+    .service-card:hover .relative::before,
+    .service-card:hover .relative::after {
+        width: 50px;
+        height: 50px;
+        filter: blur(15px);
+    }
+}
+
+/* התאמה למובייל */
+@media (max-width: 768px) {
+    .navbar-items {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: white;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        z-index: 10;
+    }
+    
+    .navbar-items.show {
+        display: flex;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .hero-banner {
+        text-align: center;
+        padding-top: 5rem;
+    }
+    
+    .testimonial-badge {
+        display: none;
+    }
+    
+    .testimonial-card {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+} 
