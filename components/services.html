@@ -1,0 +1,101 @@
+<!-- סקציית השירותים -->
+<section id="services" class="py-16 relative overflow-hidden">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-3 text-primary-blue">השירותים שלנו</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                אנו מציעים מגוון טיפולים התפתחותיים מותאמים אישית לכל ילד וילדה
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            <!-- מוטוריקה עדינה -->
+            <div class="service-card">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                    <div class="relative">
+                        <img src="images/מוטוריקה עדינה.jpeg" alt="מוטוריקה עדינה" class="w-full h-64 object-cover">
+                        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-white opacity-20"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 text-primary-pink">מוטוריקה עדינה</h3>
+                        <p class="text-gray-700">
+                            פיתוח מיומנויות היד והאצבעות הנדרשות לכתיבה, ציור וביצוע משימות יומיומיות מדויקות. טיפולים מותאמים אישית לשיפור תיאום עין-יד, דיוק בתנועה והכנה לכתיבה.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ויסות חושי -->
+            <div class="service-card">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                    <div class="relative">
+                        <img src="images/ויסות חושי.jpeg" alt="ויסות חושי" class="w-full h-64 object-cover">
+                        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-white opacity-20"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 text-primary-blue">ויסות חושי</h3>
+                        <p class="text-gray-700">
+                            שיפור יכולת הילד לעבד ולהגיב באופן מאוזן לגירויים חושיים מהסביבה. מסייעים לילדים הרגישים מדי או מגיבים חלש לגירויים חושיים לפתח תגובות מותאמות ולתפקד טוב יותר בחיי היומיום.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- תפקודים ניהוליים -->
+            <div class="service-card">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                    <div class="relative">
+                        <img src="images/תפקודיים ניהולים.PNG" alt="תפקודים ניהוליים" class="w-full h-64 object-cover">
+                        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-white opacity-20"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 text-primary-pink">תפקודים ניהוליים</h3>
+                        <p class="text-gray-700">
+                            פיתוח יכולות קוגניטיביות חיוניות כגון תכנון, זיכרון עבודה, גמישות מחשבתית ושליטה בדחפים. כלים אלו מהווים בסיס להצלחה בלמידה ובהתמודדות עם אתגרים חברתיים ורגשיים.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- מוטוריקה גסה -->
+            <div class="service-card">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                    <div class="relative">
+                        <img src="images/מוטוריקה גסה.jpg" alt="מוטוריקה גסה" class="w-full h-64 object-cover">
+                        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-white opacity-20"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 text-primary-blue">מוטוריקה גסה</h3>
+                        <p class="text-gray-700">
+                            חיזוק ופיתוח יכולות תנועה בסיסיות, שיווי משקל וקואורדינציה. טיפולים מובנים להתמודדות עם אתגרי תנועה, חיזוק שרירים וביטחון בתנועה במרחב.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- עיטורי רקע -->
+    <div class="absolute -top-24 right-24 w-48 h-48 rounded-full bg-light-pink opacity-20 blur-md"></div>
+    <div class="absolute -bottom-24 left-24 w-48 h-48 rounded-full bg-light-blue opacity-20 blur-md"></div>
+</section>
+
+<!-- אנימציה לכרטיסי השירותים -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (window.gsap && window.gsap.registerPlugin && window.ScrollTrigger) {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.from('.service-card', {
+                scrollTrigger: {
+                    trigger: '#services',
+                    start: 'top 80%'
+                },
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: "power2.out"
+            });
+        }
+    });
+</script> 
