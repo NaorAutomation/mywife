@@ -1,0 +1,139 @@
+<nav class="navbar fixed w-full py-1.5 md:py-2 z-50">
+    <div class="container mx-auto px-4 flex flex-row-reverse justify-between items-center">
+        <!-- לוגו -->
+        <a href="index.html" class="flex items-center">
+            <img src="https://i.ibb.co/j9CpCGhG/Cap22ture-removebg-preview.png" alt="קשת הריפוי - לוגו" class="h-12 md:h-14">
+            <div class="text-white font-bold mr-2 text-base md:text-lg">
+                <div>קשת הריפוי</div>
+                <div class="text-xs md:text-sm font-medium">טיפול התפתחותי לילדים</div>
+            </div>
+        </a>
+        
+        <!-- תפריט למובייל -->
+        <button class="mobile-menu-btn text-white text-2xl md:hidden focus:outline-none" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars mobile-menu-icon"></i>
+        </button>
+        
+        <!-- פריטי תפריט -->
+        <div id="mobile-menu" class="navbar-items md:flex items-center space-x-0 space-x-reverse md:space-x-6 md:space-x-reverse">
+            <a href="#home" class="menu-item block py-3 md:py-1 text-primary-blue md:text-white font-medium hover:text-primary-pink transition duration-300">בית</a>
+            <a href="#about" class="menu-item block py-3 md:py-1 text-primary-blue md:text-white font-medium hover:text-primary-pink transition duration-300">אודות</a>
+            <a href="#services" class="menu-item block py-3 md:py-1 text-primary-blue md:text-white font-medium hover:text-primary-pink transition duration-300">שירותים</a>
+            <a href="#gallery" class="menu-item block py-3 md:py-1 text-primary-blue md:text-white font-medium hover:text-primary-pink transition duration-300">גלריה</a>
+            <a href="#reviews" class="menu-item block py-3 md:py-1 text-primary-blue md:text-white font-medium hover:text-primary-pink transition duration-300">המלצות</a>
+            <a href="#contact" class="menu-item block py-3 md:py-1 text-primary-blue md:text-white font-medium hover:text-primary-pink transition duration-300">צור קשר</a>
+            <a href="tel:0501234567" class="menu-item block py-3 md:py-1 text-primary-blue md:text-white font-medium hover:text-primary-pink transition duration-300">
+                <i class="fas fa-phone-alt ml-1"></i>050-1234567
+            </a>
+        </div>
+    </div>
+</nav>
+
+<style>
+    .navbar-items {
+        display: none; /* מתחיל מוסתר */
+        flex-direction: column;
+        width: 100%;
+        background-color: white;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        z-index: 50;
+        opacity: 0;
+        transform: translateY(-20px);
+        pointer-events: none; /* מונע לחיצות על האלמנט כשהוא מוסתר */
+    }
+    
+    .navbar-items.show {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+        transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        animation: menu-reveal 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    
+    @keyframes menu-reveal {
+        0% {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .menu-item {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    
+    .navbar-items.show .menu-item {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.2s, transform 0.2s;
+    }
+    
+    .mobile-menu-icon {
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    
+    .mobile-menu-icon.open {
+        transform: rotate(90deg);
+    }
+    
+    @media (min-width: 768px) {
+        .navbar-items {
+            display: flex;
+            flex-direction: row;
+            position: static;
+            background-color: transparent;
+            box-shadow: none;
+            padding: 0;
+            opacity: 1;
+            transform: none;
+            pointer-events: auto;
+        }
+        
+        .menu-item {
+            opacity: 1;
+            transform: none;
+        }
+    }
+</style>
+
+<script>
+    function toggleMobileMenu() {
+        const navbarItems = document.getElementById('mobile-menu');
+        const menuIcon = document.querySelector('.mobile-menu-icon');
+        
+        navbarItems.classList.toggle('show');
+        menuIcon.classList.toggle('open');
+        
+        // אנימציה חלקה עם GSAP
+        if (navbarItems.classList.contains('show')) {
+            gsap.to('.menu-item', {
+                opacity: 1,
+                y: 0,
+                stagger: 0.05,
+                duration: 0.25,
+                ease: "back.out(1.5)",
+                delay: 0.1,
+                overwrite: true
+            });
+        } else {
+            // מאפס את האיברים למצב ההתחלתי כשהתפריט נסגר
+            gsap.set('.menu-item', {
+                opacity: 0,
+                y: 10,
+                delay: 0.2,
+                overwrite: true
+            });
+        }
+    }
+</script> 
